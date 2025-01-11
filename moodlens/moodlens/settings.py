@@ -21,6 +21,7 @@ REST_FRAMEWORK = {
     ),
 }
 
+
 from pathlib import Path
 from dotenv import load_dotenv
 import os
@@ -64,6 +65,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'moodlens',
     'sentient',
     'rest_framework',
     # 'rest_framework_simplejwt',
