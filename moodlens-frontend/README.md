@@ -1,4 +1,5 @@
-# Mood-Lens - Sentiment Analysis
+# GUI
+
 ```bash
 src/
 ├── components/
@@ -14,7 +15,6 @@ src/
 └── styles.css  # Global styling
 
 ```
-
 
 
 ### `npm start`:
