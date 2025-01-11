@@ -30,35 +30,37 @@ def protected_view(request):
 @permission_classes([IsAuthenticated])
 def predict_sentiment(request):
     '''TensorFlow ML model endpoint - does the sentiment analysis and saves to history'''
-    if request.method == 'POST':
-        try:
-            data = json.loads(request.body)
-            text = data.get('text', '').strip()
+    try:
+        text = request.data.get('text', '').strip()
 
-            if not text:
-                return JsonResponse({'error': 'Text input cannot be empty'}, status=400)
-
-            # Perform the prediction
-            sentiment, confidence = predict_mood(text)
-
-            # Save the prediction to the database
-            SentimentHistory.objects.create(
-                user=request.user,
-                text=text,
-                sentiment=sentiment,
-                confidence=confidence
+        if not text:
+            return Response(
+                {'error': 'Text input cannot be empty'}, 
+                status=status.HTTP_400_BAD_REQUEST
             )
 
-            # Return the response to the user
-            return JsonResponse({
-                'sentiment': sentiment,
-                'confidence': confidence
-            })
+        # Perform the prediction
+        sentiment, confidence = predict_mood(text)
 
-        except Exception as e:
-            return JsonResponse({'error': str(e)}, status=400)
+        # Save the prediction to the database
+        SentimentHistory.objects.create(
+            user=request.user,
+            text=text,
+            sentiment=sentiment,
+            confidence=confidence
+        )
 
-    return JsonResponse({'error': 'Invalid request method'}, status=405)
+        # Return the response to the user
+        return Response({
+            'sentiment': sentiment,
+            'confidence': confidence
+        }, status=status.HTTP_200_OK)
+
+    except Exception as e:
+        return Response(
+            {'error': str(e)}, 
+            status=status.HTTP_400_BAD_REQUEST
+        )
 
 
 @api_view(['POST'])
