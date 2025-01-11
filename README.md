@@ -2,7 +2,6 @@
 
 MoodLens is a web application that packages a machine learning model to analyze text sentiment. It allows users to input text, view sentiment predictions, track their history, and visualize mood trends over time. The app features a secure backend with user authentication and a responsive, user-friendly frontend.
 
----
 
 ### **Features**
 - **User Authentication**: Secure registration, login, and logout using JWT.
@@ -11,7 +10,6 @@ MoodLens is a web application that packages a machine learning model to analyze 
 - **Mood Visualization**: View mood trends using interactive graphs.
 - **Responsive Design**: Works seamlessly on both desktop and mobile devices.
 
----
 
 ### **Tech Stack**
 - **Frontend**: React.js, Chart.js
@@ -62,7 +60,7 @@ MoodLens is a web application that packages a machine learning model to analyze 
    npm start
    ```
 
----
+
 
 ### **Testing**
 - **Frontend**:
@@ -74,7 +72,6 @@ MoodLens is a web application that packages a machine learning model to analyze 
   python manage.py test
   ```
 
----
 
 ### **Usage**
 1. Register or log in to the app.
