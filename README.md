@@ -1,14 +1,15 @@
 ### **MoodLens - Sentiment Analysis**  
+> The Machine Learning model was trained on the [Sentiment 140](https://www.tensorflow.org/datasets/catalog/sentiment140) dataset.
 
 MoodLens is a web application that packages a machine learning model to analyze text sentiment. It allows users to input text, view sentiment predictions, track their history, and visualize mood trends over time. The app features a secure backend with user authentication and a responsive, user-friendly frontend.
 
 
 ### **Features**
-- **User Authentication**: Secure registration, login, and logout using JWT.
-- **Sentiment Analysis**: Analyze text and receive sentiment predictions with confidence scores.
-- **History Tracking**: Save and view past sentiment analyses in a Twitter-like interface.
-- **Mood Visualization**: View mood trends using interactive graphs.
-- **Responsive Design**: Works seamlessly on both desktop and mobile devices.
+- **User Authentication**: secure registration, login, and logout using JWT.
+- **Sentiment Analysis**: analyze text and receive sentiment predictions with confidence scores.
+- **History Tracking**: save and view past sentiment analyses in a Twitter-like interface.
+- **Mood Visualization**: view mood trends using interactive graphs.
+- **Responsive Design**: works seamlessly on both desktop only for now.
 
 
 ### **Tech Stack**
@@ -19,19 +20,17 @@ MoodLens is a web application that packages a machine learning model to analyze 
 
 ---
 
-### **Setup Instructions**
-
+### **Setup Instructions:**
+```bash
+git clone https://github.com/Jeff-kimani/moodlens.git
+```
 #### **1. Backend**
-1. Clone the repository:
+1. Install dependencies:
    ```bash
-   git clone https://github.com/Jeff-kimani/moodlens.git
-   cd moodlens/backend
-   ```
-2. Install dependencies:
-   ```bash
+   cd moodlens
    pip install -r requirements.txt
    ```
-3. Configure `.env` with the following variables:
+2. Configure `.env` with the following variables:
    ```
    DJANGO_SECRET_KEY=your_secret_key
    DB_NAME=moodlens
@@ -40,7 +39,7 @@ MoodLens is a web application that packages a machine learning model to analyze 
    DB_HOST=localhost
    DB_PORT=5432
    ```
-4. Run migrations and start the server:
+3. Run migrations and start the server:
    ```bash
    python manage.py migrate
    python manage.py runserver
@@ -49,7 +48,8 @@ MoodLens is a web application that packages a machine learning model to analyze 
 #### **2. Frontend**
 1. Navigate to the frontend directory:
    ```bash
-   cd moodlens/frontend
+   # do in root directory;
+   cd moodlens-frontend
    ```
 2. Install dependencies:
    ```bash
@@ -78,7 +78,7 @@ MoodLens is a web application that packages a machine learning model to analyze 
 2. Navigate to the **Model** page to analyze text sentiment.
 3. View past analyses in the **Mood History** section.
 4. Explore mood trends/visualization in the **Mood Graphs** section.
-5. Log out to secure your account.
+5. Log out.
 
 ---
 
